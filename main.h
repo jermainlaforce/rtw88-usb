@@ -1612,11 +1612,8 @@ struct rtw_dev {
 	/* ensures exclusive access from mac80211 callbacks */
 	struct mutex mutex;
 
-	/* lock for dm to use */
-	spinlock_t dm_lock;
-
 	/* read/write rf register */
-	spinlock_t rf_lock;
+	struct mutex rf_lock; /* mutex lock to protect rf register operation */
 
 	/* watch dog every 2 sec */
 	struct delayed_work watch_dog_work;
@@ -1639,8 +1636,7 @@ struct rtw_dev {
 	struct {
 		/* incicate the mail box to use with fw */
 		u8 last_box_num;
-		/* protect to send h2c to fw */
-		spinlock_t lock;
+		struct mutex lock; /* mutex lock to protect to send h2c */
 		u32 seq;
 	} h2c;
 
