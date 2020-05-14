@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause */
-/* Copyright(c) 2018-2019  Realtek Corporation
+/* Copyright(c) 2018-2020  Realtek Corporation
  */
 
 #ifndef __RTW_DEBUG_H
@@ -26,10 +26,10 @@ enum rtw_debug_mask {
 
 #ifdef CONFIG_RTW88_DEBUGFS
 void rtw_debugfs_init(struct rtw_dev *rtwdev);
-void rtw_debugfs_deinit(struct rtw_dev *rtwdev);
+//void rtw_debugfs_deinit(struct rtw_dev *rtwdev);
 #else
 static inline void rtw_debugfs_init(struct rtw_dev *rtwdev) {}
-static inline void rtw_debugfs_deinit(struct rtw_dev *rtwdev) {}
+//static inline void rtw_debugfs_deinit(struct rtw_dev *rtwdev) {}
 #endif /* CONFIG_RTW88_DEBUGFS */
 
 #ifdef CONFIG_RTW88_DEBUG

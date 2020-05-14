@@ -1532,7 +1532,7 @@ void rtw_unregister_hw(struct rtw_dev *rtwdev, struct ieee80211_hw *hw)
 {
 	struct rtw_chip_info *chip = rtwdev->chip;
 
-	rtw_debugfs_deinit(rtwdev);
+	//rtw_debugfs_deinit(rtwdev);
 	ieee80211_unregister_hw(hw);
 	rtw_unset_supported_band(hw, chip);
 }
