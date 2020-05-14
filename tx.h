@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause */
-/* Copyright(c) 2018-2019  Realtek Corporation
+/* Copyright(c) 2018-2020  Realtek Corporation
  */
 
 #ifndef __RTW_TX_H_
@@ -97,6 +97,15 @@ void rtw_tx_report_handle(struct rtw_dev *rtwdev, struct sk_buff *skb);
 void rtw_rsvd_page_pkt_info_update(struct rtw_dev *rtwdev,
 				   struct rtw_tx_pkt_info *pkt_info,
 				   struct sk_buff *skb);
+struct sk_buff *
+rtw_tx_write_data_rsvd_page_get(struct rtw_dev *rtwdev,
+				struct rtw_tx_pkt_info *pkt_info,
+				u8 *buf, u32 size);
+struct sk_buff *
+rtw_tx_write_data_h2c_get(struct rtw_dev *rtwdev,
+			  struct rtw_tx_pkt_info *pkt_info,
+			  u8 *buf, u32 size);
+
 
 static inline
 void fill_txdesc_checksum_common(u8 *txdesc, size_t words)
