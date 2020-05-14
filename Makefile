@@ -52,6 +52,22 @@ ARCH ?= $(SUBARCH)
 all:
 	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KERNELDIR) M=$(PWD)
 
+strip:
+	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
+
+install:
+	#mkdir /lib/firmware/rtw88
+	cp fw/* /lib/firmware/rtw88/
+	#cp fw/rtw8822b_fw.bin /lib/firmware/rtw88/
+	#cp fw/rtw8822c_fw.bin /lib/firmware/rtw88/
+	#cp fw/rtw8822c_wow_fw.bin /lib/firmware/rtw88/
+	install -p -m 644 $(MODULE_NAME).ko $(MODDESTDIR)
+	/sbin/depmod -a ${KVER}
+
+uninstall:
+	rm -f $(MODDESTDIR)/$(MODULE_NAME).ko
+	/sbin/depmod -a ${KVER}
+
 cscope:
 	find ./ -name "*.[ch]" > cscope.files
 	cscope -Rbq -i cscope.files

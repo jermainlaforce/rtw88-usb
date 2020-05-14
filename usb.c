@@ -1285,7 +1285,7 @@ static void rtw_usb_stop(struct rtw_dev *rtwdev)
 
 static void rtw_usb_deep_ps(struct rtw_dev *rtwdev, bool enter)
 {
-	pr_debug("%s ===>\n", __func__);
+	//pr_debug("%s ===>\n", __func__);
 }
 
 static void rtw_usb_link_ps(struct rtw_dev *rtwdev, bool enter)
