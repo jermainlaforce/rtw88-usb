@@ -8,3 +8,4 @@ Module.symvers
 built-in.a
 modules.order
 *.ko
+*.swp
