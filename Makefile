@@ -61,7 +61,9 @@ install:
 	#cp fw/rtw8822b_fw.bin /lib/firmware/rtw88/
 	#cp fw/rtw8822c_fw.bin /lib/firmware/rtw88/
 	#cp fw/rtw8822c_wow_fw.bin /lib/firmware/rtw88/
-	install -p -m 644 $(MODULE_NAME).ko $(MODDESTDIR)
+	#install -p -m 644 $(MODULE_NAME).ko $(MODDESTDIR)
+	cp rtw88.ko /lib/modules/`uname -r`/kernel/drivers/net/wireless/realtek/rtw88
+	cp rtwusb.ko /lib/modules/`uname -r`/kernel/drivers/net/wireless/realtek/rtw88
 	/sbin/depmod -a ${KVER}
 
 uninstall:
