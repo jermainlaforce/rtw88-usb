@@ -13,22 +13,24 @@ This driver is based on Realtek's [rtw88 driver](https://github.com/torvalds/lin
 For a backport version (backport to kernel v4.15), please check [this branch](https://github.com/borting/rtw88-usb/tree/backport-cfc1291-v4.15.0).
 
 A few known wireless cards that use this driver include 
+* [ASUS AC-55 AC1300](https://www.asus.com/Networking/USB-AC55-B1/)
 * [Edimax EW-7822ULC](http://us.edimax.com/edimax/merchandise/merchandise_detail/data/edimax/us/wireless_adapters_ac1200_dual-band/ew-7822ulc/)
 * [ASUS AC-53 NANO](https://www.asus.com/Networking/USB-AC53-Nano/)
 * [TPLink Archer T4U v3](https://www.tp-link.com/tw/support/download/archer-t4u/)
 
 
-## Build
+## Build (the easy way)
 
 ```console
 $ make clean
 $ make
+$ make install
 ```
 
-## Installation
+## Manually Installation
 
 Load driver for test:
-```console
+```sh
 $ sudo mkdir -p /lib/firmware/rtw88
 $ sudo cp fw/rtw8822* /lib/firmware/rtw88/
 $ sudo insmod rtw88.ko
@@ -49,11 +51,11 @@ $ sudo systemctl start systemd-modules-load
 ## General Commands
 
 Scan:
-```console
+```sh
 $ sudo iw wlanX scan
 ```
 Connect to the AP without security:
-```console
+```sh
 $ sudo iw wlanX connect <AP name>
 ```
 
